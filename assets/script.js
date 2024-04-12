@@ -16,3 +16,42 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+const flecheGauche = document.querySelector('.arrow_left');
+const flecheDroite = document.querySelector('.arrow_right');
+const text = document.querySelector('#banner p');
+const dot = document.querySelectorAll('.dot');
+const img = document.querySelector('#banner img');
+
+let i = 0;
+dot[i].classList.add('dot_selected');
+
+flecheDroite.addEventListener('click', clicFlecheDroite);
+function clicFlecheDroite() {
+  	console.log('Flèche droite cliquée');
+	i = (i + 1) % slides.length;
+	changeImg();
+	changeText();
+	changeDot();
+}
+
+flecheGauche.addEventListener('click', clicFlecheGauche);
+function clicFlecheGauche() {
+  	console.log('Flèche gauche cliquée');
+	i = (i + 3) % slides.length;
+	changeImg();
+	changeText();
+	changeDot();
+}
+
+function changeImg() {
+	img.src = "./assets/images/slideshow/" + slides[i].image;
+}
+
+function changeText() {
+	text.innerHTML = slides[i].tagLine;
+}
+
+function changeDot() {
+	dot.forEach(d => d.classList.remove('dot_selected'));
+ 	dot[i].classList.add('dot_selected');
+}
