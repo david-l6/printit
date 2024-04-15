@@ -1,3 +1,5 @@
+// Tableau
+
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -16,12 +18,8 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
-const fleche = document.querySelector('.arrow');
-const flecheGauche = document.querySelector('.arrow_left');
-const flecheDroite = document.querySelector('.arrow_right');
-const text = document.querySelector('#banner p');
-const dot = document.querySelectorAll('.dot');
-const img = document.querySelector('#banner img');
+
+// Positionnement des flèches
 
 document.addEventListener('DOMContentLoaded', (event) => {
 
@@ -35,6 +33,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	flecheDroite.style.top = '-35px';
 	flecheDroite.style.cursor = 'pointer';
 });
+
+// Création des points en fonction du nombre de slides
+
+let divParent = document.querySelector('.dots');
+
+slides.forEach(function() {
+  let nouveauDiv = document.createElement('div');
+  nouveauDiv.classList.add('dot');
+  divParent.appendChild(nouveauDiv);
+});
+
+// Variables
+
+const fleche = document.querySelector('.arrow');
+const flecheGauche = document.querySelector('.arrow_left');
+const flecheDroite = document.querySelector('.arrow_right');
+const text = document.querySelector('#banner p');
+const dot = document.querySelectorAll('.dot');
+const img = document.querySelector('#banner img');
+
+// Carroussel d'images qui s'adaptent en fonction du nombre de slides
 
 let i = 0;
 dot[i].classList.add('dot_selected');
@@ -51,7 +70,7 @@ function clicFlecheDroite() {
 flecheGauche.addEventListener('click', clicFlecheGauche);
 function clicFlecheGauche() {
   	console.log('Flèche gauche cliquée');
-	i = (i + 3) % slides.length;
+	i = (i - 1 + slides.length) % slides.length;
 	changeImg();
 	changeText();
 	changeDot();
