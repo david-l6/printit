@@ -1,6 +1,3 @@
-
-
-
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -28,15 +25,15 @@ const img = document.querySelector('#banner img');
 
 document.addEventListener('DOMContentLoaded', (event) => {
 
-		fleche.style.width = '100%';
+	fleche.style.width = '100%';
 
-		flecheGauche.style.position = 'absolute';
-		flecheGauche.style.top = '-35px';
-		flecheGauche.style.cursor = 'pointer';
+	flecheGauche.style.position = 'absolute';
+	flecheGauche.style.top = '-35px';
+	flecheGauche.style.cursor = 'pointer';
 
-		flecheDroite.style.position = 'absolute';
-		flecheDroite.style.top = '-35px';
-		flecheDroite.style.cursor = 'pointer';
+	flecheDroite.style.position = 'absolute';
+	flecheDroite.style.top = '-35px';
+	flecheDroite.style.cursor = 'pointer';
 });
 
 let i = 0;
